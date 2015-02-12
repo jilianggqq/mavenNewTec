@@ -29,7 +29,7 @@ public class TestLambda1 {
 	}
 
 	public long getDoubleLength(LengthInt li, String str) {
-		return li.getLen(str) * 2;
+		return li.getLen(str);
 	}
 
 	public boolean isTrue(Predicate<String> ps, String str) {
@@ -62,7 +62,7 @@ public class TestLambda1 {
 		}, "Hello");
 		System.out.println(len);
 
-		len = new TestLambda1().getDoubleLength((String str) -> str.length(),
+		len = new TestLambda1().getDoubleLength(str -> str.length(),
 				"HelloWorld");
 		System.out.println(len);
 
@@ -79,6 +79,24 @@ public class TestLambda1 {
 				return t.contains("h");
 			}
 		}), "shell");
+		
+		Predicate<String> p = new Predicate<String>() {
+
+			@Override
+			public boolean test(String t) {
+				// TODO Auto-generated method stub
+				return true;
+			}
+		};
+		
+		new TestLambda1().isTrue(new Predicate<String>() {
+
+			@Override
+			public boolean test(String t) {
+				// TODO Auto-generated method stub
+				return true;
+			}
+		}.and(x->x.endsWith("t")), "test");
 
 		System.out.println(res);
 

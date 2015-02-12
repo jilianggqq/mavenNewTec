@@ -29,15 +29,21 @@ public class TestLambda2 {
 		int[] arr = { 333, 21, 345, 545 };
 		IntStream stream = Arrays.stream(arr);
 
+		stream.forEach(x -> {
+			x = x + 5;
+			System.out.println(x);
+		});
+
 		// stream.forEach(System.out::println);
 		stream.forEach(new TestLambda2()::doAction);
+		
+//		stream.forEach();
 	}
 
 	@Test
 	public void streamDirect() {
 		// you can create an Stream directly
-		Stream.of(1, 2, "asdfas", 4, 5, "adsfasa", 7, 8, 9, 10).forEach(
-				System.out::println);
+		Stream.of(1, 2, "asdfas", 4, 5, "adsfasa", 7, 8, 9, 10).forEach(System.out::println);
 	}
 
 	private boolean isToolong(String str) {
@@ -65,17 +71,12 @@ public class TestLambda2 {
 		collectionStr.add("ocho");
 
 		Stream<String> numbersFromCollection = collectionStr.stream();
-		numbersFromCollection.filter(x -> x.toString().startsWith("s"))
-				.forEach(System.out::println);
-		boolean anyMatch = collectionStr.stream().anyMatch(
-				s -> s.toString().startsWith("a"));
+		numbersFromCollection.filter(x -> x.toString().startsWith("s")).forEach(System.out::println);
+		boolean anyMatch = collectionStr.stream().anyMatch(s -> s.toString().startsWith("a"));
 		Assert.assertFalse(anyMatch);
 
-		collectionStr.stream().filter(x -> x.contains("o"))
-				.map(x -> "Hello " + x.toUpperCase())
-				.forEach(System.out::println);
-		collectionStr.stream().filter(x -> isToolong(x))
-				.forEach(System.out::println);
+		collectionStr.stream().filter(x -> x.contains("o")).map(x -> "Hello " + x.toUpperCase()).forEach(System.out::println);
+		collectionStr.stream().filter(x -> isToolong(x)).forEach(System.out::println);
 
 		System.out.println();
 		collectionStr.stream().filter(new Predicate<String>() {
