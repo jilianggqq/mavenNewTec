@@ -1,6 +1,7 @@
 package edu.gqq.reflect.two;
 
 import java.lang.reflect.Field;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,8 +10,8 @@ import org.apache.log4j.Logger;
 import edu.gqq.reflect.Person;
 import edu.gqq.util.Log4jUtil;
 
-public class PersonTest {
-	static Logger logger = Log4jUtil.getLogger(PersonTest.class);
+public class ClassReflectTest1 {
+	static Logger logger = Log4jUtil.getLogger(ClassReflectTest1.class);
 
 	public static void main(String[] args) {
 		//
@@ -76,10 +77,19 @@ public class PersonTest {
 			// name is private ,so throw java.lang.NoSuchFieldException
 //			Field namefield = Person.class.getField("name");
 			logger.debug(emailfield.getDeclaringClass().getName());
+
+			// circulately output all the fields of person.
+			logger.info("output all the fields of person.");
+			Field[] pFields = Person.class.getFields();
+			Arrays.stream(pFields).forEach(x -> logger.debug(x.getName()));
 		} catch (NoSuchFieldException | SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+		// 8. Anonymous Class Declarations
+		MyClass.testO();
+
 	}
 	
 //	public class MyClass {
@@ -88,4 +98,17 @@ public class PersonTest {
 //	    };
 //	    
 //	}
+}
+
+class MyClass {
+    static Object o = new Object() {
+        public void m() {} 
+    };
+
+	// o.getClass().getEnclosingClass();
+	static void testO() {
+		ClassReflectTest1.logger.debug("Anonymous Class Declarations");
+		ClassReflectTest1.logger.debug(o.getClass().getEnclosingClass()
+				.getName());
+	}
 }
