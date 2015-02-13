@@ -81,5 +81,13 @@ public class PersonTest {
 			e.printStackTrace();
 		}
 
+		
 	}
+	
+//	public class MyClass {
+//	    static Object o = new Object() {
+//	        public void m() {} 
+//	    };
+//	    
+//	}
 }
