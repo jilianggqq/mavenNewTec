@@ -3,19 +3,43 @@ package edu.gqq.reflect;
 
 public class Person {
 
-	public String nameString;
-	public Person() throws Exception {
-		if (!this.getClass().getPackage().getName().equals("edu.gqq.reflect"))
-			throw new Exception();
+	public interface IAcion{
+		void doAction();
 	}
-
-	public void doReflect() {
-
+	
+	private IAcion ia;
+	
+	public void setIA(IAcion ia){
+		this.ia = ia;
 	}
-
-	public static void main(String[] args) throws Exception {
-		Person person = new Person();
-		person.nameString = "ttt";
-		System.out.print(person.nameString);
+	
+	public void doAciont() {
+		if(null!=ia)
+			ia.doAction();
 	}
+	
+	private int id;
+	private String name;
+	public String email;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
+	
 }

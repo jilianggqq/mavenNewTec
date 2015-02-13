@@ -19,4 +19,8 @@ public class Log4jUtil {
 		// String
 		return logger;
 	}
+	
+	public static void doLogger(Object o) {
+		logger.debug(o);
+	}
 }
