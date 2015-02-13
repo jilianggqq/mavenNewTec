@@ -2,37 +2,28 @@ package edu.gqq.reflect;
 
 import java.util.function.Consumer;
 
-public class Person implements Consumer<Person> {
+public class CopyOfPerson implements Consumer<CopyOfPerson> {
 
 	public interface IAcion {
 		void doAction();
 	}
 
-	public IAcion ia;
-
-	public Person() {
+	public CopyOfPerson() {
 	}
 
-	public Person(int id, String name, String email) {
+	public CopyOfPerson(int id, String name, String email) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 	}
 
-	public void setIA(IAcion ia) {
-		this.ia = ia;
-	}
-
-	public void doAciont() {
-		if (null != ia)
-			ia.doAction();
-	}
 
 	private int id;
+	public long count;
 	private String name;
 	public String email;
-	private Address address;
-	public long count;
+
+	// private Address address;
 
 	public int getId() {
 		return id;
@@ -59,7 +50,7 @@ public class Person implements Consumer<Person> {
 	}
 
 	@Override
-	public void accept(Person t) {
+	public void accept(CopyOfPerson t) {
 		System.out.format("{id:%d,name:%s}", id, name);
 	}
 
@@ -68,13 +59,13 @@ public class Person implements Consumer<Person> {
 		return String.format("{id:%d, name:%s, email:%s}", id, name, email);
 	}
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress() {
-		Address a = new Address();
-		a.addr = "dixon";
-		this.address = a;
-	}
+	// public Address getAddress() {
+	// return address;
+	// }
+	//
+	// public void setAddress() {
+	// Address a = new Address();
+	// a.addr = "dixon";
+	// this.address = a;
+	// }
 }
