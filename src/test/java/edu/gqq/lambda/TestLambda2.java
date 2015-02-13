@@ -25,6 +25,7 @@ public class TestLambda2 extends TestCase {
 
 	public void testStream() {
 		int[] arr = { 333, 21, 345, 545 };
+		Arrays.stream(arr).forEach(x->System.out.println(x+5));
 		IntStream stream = Arrays.stream(arr);
 
 		stream.forEach(x -> {
