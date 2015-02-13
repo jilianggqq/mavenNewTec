@@ -80,8 +80,6 @@ public class PersonTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		
 	}
 	
 //	public class MyClass {

@@ -1,3 +1,1 @@
-# mavenNewTec
-
-my tec2
+# Java最新技术调查
