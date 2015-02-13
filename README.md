@@ -1,3 +1,3 @@
 # mavenNewTec
 
-my tec
+my tec3
