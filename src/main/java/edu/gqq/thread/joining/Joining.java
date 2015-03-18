@@ -17,6 +17,7 @@ class Sleeper extends Thread {
 
 	public void run() {
 		try {
+			G.println(getName() + " will sleep about " + duration + " millseconds");
 			sleep(duration);
 			Info.value = 3;
 		} catch (InterruptedException e) {
@@ -53,14 +54,13 @@ class Joiner extends Thread {
 public class Joining {
 	public static void main(String[] args) {
 		// 1、经典例子
-		// Sleeper sleepy = new Sleeper("Sleepy", 1500), grumpy = new
-		// Sleeper("Grumpy", 2500);
-		// Joiner dopey = new Joiner("Dopey", sleepy), doc = new Joiner("Doc",
-		// grumpy);
-		// grumpy.interrupt();
+		Sleeper sleepy = new Sleeper("Sleepy", 1500), grumpy = new Sleeper("Grumpy", 2500);
+		Joiner dopey = new Joiner("Dopey", sleepy), doc = new Joiner("Doc", grumpy);
+		grumpy.interrupt();
 
 		// 2、用一个线程去修改一个变量，另一个线程去读取这个变量（灵活的思维在于创造）
-		Sleeper sleeper = new Sleeper("Sleeper", 300);
-		Joiner joiner = new Joiner("Joiner", sleeper);
+		// Sleeper sleeper = new Sleeper("Sleeper", 300);
+		// Joiner joiner = new Joiner("Joiner", sleeper);
+		// sleeper.start();
 	}
 }

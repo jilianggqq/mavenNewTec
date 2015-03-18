@@ -15,7 +15,7 @@ public class TestJoin {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				System.out.println("this is thread infomation!");
+				System.out.println("this is thread " + Thread.currentThread().getName() + "!");
 			}
 		});
 
@@ -23,7 +23,7 @@ public class TestJoin {
 		// 如果没有start的话，join方法是没有用的。
 		joinThread.start();
 		// 特别注意，join方法不会自动运行。但是主线程要等着子线程执行完才可以。
-		joinThread.join();
+		// joinThread.join();
 		G.println("this is main info");
 	}
 }
