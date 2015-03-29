@@ -10,16 +10,16 @@ class DualSynch {
 
 	public synchronized void f() {
 		for (int i = 0; i < 5; i++) {
-			Thread.yield();
 			System.out.println("f()");
+			Thread.yield();
 		}
 	}
 
 	public void h() {
 		synchronized (o) {
 			for (int i = 0; i < 5; i++) {
-				Thread.yield();
 				System.out.println("h()");
+				Thread.yield();
 			}
 		}
 	}
@@ -27,8 +27,8 @@ class DualSynch {
 	public void g() {
 		synchronized (o2) {
 			for (int i = 0; i < 5; i++) {
-				Thread.yield();
 				System.out.println("g()");
+				// Thread.yield();
 			}
 
 		}
@@ -51,10 +51,10 @@ public class SyncObject {
 		new Thread() {
 			@Override
 			public void run() {
-				ds.f();
+				ds.g();
 			}
 		}.start();
-		
+
 		new Thread() {
 			@Override
 			public void run() {
@@ -63,12 +63,12 @@ public class SyncObject {
 		}.start();
 
 
-//		exec.execute(() -> {
-//			ds.h();
-//		});
+		// exec.execute(() -> {
+		// ds.g();
+		// });
 		// exec.execute(() -> {
 		// ds.f();
 		// });
-		ds.g();
+		ds.f();
 	}
 }
