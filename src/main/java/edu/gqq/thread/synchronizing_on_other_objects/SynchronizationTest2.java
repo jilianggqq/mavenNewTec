@@ -50,7 +50,7 @@ class ThreadDemo extends Thread {
 	}
 
 	public void run() {
-		// 上面一种写法和下面一种写法是一样的。
+		// 上面一种写法和下面一种写法是一样的。->
 		// synchronized (PD) {
 		// PD.printCount();
 		// }
