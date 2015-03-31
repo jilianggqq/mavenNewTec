@@ -6,7 +6,7 @@ case $1 in
     start)
         echo "Starting $SERVICE_NAME ..."
         if [ ! -f $PID_PATH_NAME ]; then
-            nohup java -cp $PATH_TO_JAR:/home/jiliang/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar edu.gqq.thread.noticeandwait.RandomTest /tmp 2>> /dev/null >> /dev/null &
+            nohup java -cp $PATH_TO_JAR:/home/itu/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar edu.gqq.thread.noticeandwait.RandomTest /tmp 2>> /dev/null >> /dev/null &
                         echo $! > $PID_PATH_NAME
             echo "$SERVICE_NAME started ..."
         else
