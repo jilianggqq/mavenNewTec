@@ -48,17 +48,17 @@ public class AsListTest {
 			}
 
 		});
-		// try {
-		// List<Integer> list = successfulAsList.get();
-		// out.println(list.size());
-		// for (Integer integer : list) {
-		// out.println(integer);
-		// }
-		//
-		// } catch (InterruptedException | ExecutionException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
+		/* try {
+		 List<Integer> list = successfulAsList.get();
+		 out.println(list.size());
+		 for (Integer integer : list) {
+		 out.println(integer);
+		 }
+		
+		 } catch (InterruptedException | ExecutionException e) {
+		 // TODO Auto-generated catch block
+		 e.printStackTrace();
+		 }*/
 		executorService.shutdown();
 	}
 
@@ -92,23 +92,5 @@ public class AsListTest {
 		});
 	}
 
-	// public static ListenableFuture<String> execute2() {
-	// return executorService.submit(new Callable<String>() {
-	//
-	// @Override
-	// public String call() throws Exception {
-	// return "2";
-	// }
-	// });
-	// }
-	//
-	// public static ListenableFuture<String> execute3() {
-	// return executorService.submit(new Callable<String>() {
-	//
-	// @Override
-	// public String call() throws Exception {
-	// return "-1";
-	// }
-	// });
-	// }
+	
 }
