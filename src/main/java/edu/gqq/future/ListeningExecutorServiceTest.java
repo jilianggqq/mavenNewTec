@@ -2,12 +2,14 @@ package edu.gqq.future;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
+
 import static java.lang.System.out;
 
 public class ListeningExecutorServiceTest {
@@ -31,6 +33,10 @@ public class ListeningExecutorServiceTest {
 			}
 
 		});
+
+		out.println("this is main.");
+
+		service.shutdown();
 	}
 
 	private static void battleArchNemesis() {
@@ -47,6 +53,12 @@ public class ListeningExecutorServiceTest {
 	}
 
 	private static Explosion pushBigRedButton() {
+		try {
+			TimeUnit.SECONDS.sleep(3);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// TODO Auto-generated method stub
 		out.println("Thread Name:" + Thread.currentThread().getName());
 		out.println("Big Red Button is pushed.");
