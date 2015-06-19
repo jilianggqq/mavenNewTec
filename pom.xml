@@ -50,6 +50,12 @@
 			<version>2.3.1</version>
 		</dependency>
 
+		<!-- apache bean Utils -->
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
