@@ -1,5 +1,8 @@
 package edu.gqq;
 
+import org.apache.log4j.Logger;
+
+import edu.gqq.util.Log4jUtil;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -8,6 +11,9 @@ import junit.framework.TestSuite;
  * Unit test for simple App.
  */
 public class AppTest extends TestCase {
+
+	Logger logger = Logger.getLogger(AppTest.class);
+
 	/**
 	 * Create the test case
 	 *
@@ -30,6 +36,8 @@ public class AppTest extends TestCase {
 	 */
 	public void testApp() {
 		assertTrue("abc" == "abc");
+		logger.debug("test App success");
+		System.out.println("test App success2");
 	}
 
 	/**

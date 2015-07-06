@@ -1,0 +1,39 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+version = '1.0'
+jar {
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version,
+                   'Main-Class': 'edu.gqq.jetty.HelloWorld'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'junit:junit:4.12'
+    compile 'org.apache.commons:commons-lang3:3.3.2'
+    compile 'log4j:log4j:1.2.17'
+    compile 'com.google.guava:guava:18.0'
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'commons-beanutils:commons-beanutils:1.9.2'
+    compile 'org.eclipse.jetty:jetty-server:9.3.0.v20150612'
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
