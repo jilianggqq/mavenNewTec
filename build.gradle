@@ -47,19 +47,19 @@ task hello {
 }
 
 task hello2 << {
-    println 'Hello world2!'
+    println 'this is really hello2'
 }
 
 hello2.doFirst {
-    println 'Hello Venus'
+    println 'this is hello2 do first'
 }
 
 hello2.doLast {
-    println 'Hello Mars'
+    println 'this is hello2 do last'
 }
 
 hello2 << {
-    println 'Hello Jupiter'
+    println 'this is hello without task keyword'
 }
 
 task upper << {
@@ -88,7 +88,19 @@ task loadfile << {
         if (file.isFile()) {
             ant.loadfile(srcFile: file, property: file.name)
             println " *** $file.name ***"
-            println "${ant.properties[file.name]}"
+//            println "${ant.properties[file.name]}"
+        }
+    }
+}
+
+task copyLicense {
+    println "*** buildDir is $buildDir ***"
+    outputs.file new File("$buildDir/LICENSE")
+    doLast {
+        println "do copy is start"
+        copy {
+            from "LICENSE"
+            into "$buildDir"
         }
     }
 }
@@ -96,3 +108,14 @@ task loadfile << {
 applicationDistribution.from(loadfile) {
     into ""
 }
+// applicationDistribution.from(upper) {
+//     into ""
+// }
+
+// applicationDistribution.from(copyLicense) {
+//     into ""
+// }
+
+// applicationDistribution.from(hello2) {
+//     into ""
+// }
