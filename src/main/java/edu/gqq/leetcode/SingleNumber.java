@@ -24,7 +24,15 @@ public class SingleNumber {
 		logger.debug(4 ^ 0);
 		logger.debug(114 ^ 0);
 		logger.debug(4 ^ 3 ^ 4 ^ 3);
-		int[] a = {1,1,2,2,3};
+		int[] a = { 1, 1, 2, 2, 3 };
 		logger.debug(new SingleNumber().singleNumber(a));
+
+		int a1 = 3;
+		int b1 = 4;
+		a1 = a1 ^ b1;
+		b1 = a1 ^ b1;
+		a1 = b1 ^ a1;
+		logger.debug(b1);
+		logger.debug(a1);
 	}
 }
