@@ -1,10 +1,6 @@
 package edu.gqq.leetcode;
 
-import java.util.Arrays;
-
 import org.apache.log4j.Logger;
-
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import edu.gqq.util.Log4jUtil;
 
