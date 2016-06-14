@@ -2,6 +2,7 @@ package edu.gqq;
 
 import org.apache.log4j.Logger;
 
+import edu.gqq.guava.MutliMapTest;
 import edu.gqq.util.Log4jUtil;
 
 /**
@@ -14,5 +15,7 @@ public class App {
 	public static void main(String[] args) {
 		logger.info("this is logger info");
 		System.out.println("Hello World!");
+		// test guava
+		MutliMapTest.doMain();
 	}
 }

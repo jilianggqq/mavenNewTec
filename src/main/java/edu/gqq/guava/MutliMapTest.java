@@ -6,7 +6,7 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
 public class MutliMapTest {
-	public static void main(String... args) {
+	public static void doMain(String... args) {
 		Multimap<String, String> myMultimap = ArrayListMultimap.create();
 
 		// Adding some key/value
