@@ -1,4 +1,4 @@
-package edu.gqq.java8;
+package edu.gqq.java8.lambda;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
