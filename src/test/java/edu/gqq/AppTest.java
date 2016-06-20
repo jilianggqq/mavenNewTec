@@ -37,6 +37,7 @@ public class AppTest extends TestCase {
 	public void testApp() {
 		assertTrue("abc" == "abc");
 		logger.debug("test App success");
+		System.out.println("abc".substring(0,2));
 		System.out.println("test App success2");
 	}
 
