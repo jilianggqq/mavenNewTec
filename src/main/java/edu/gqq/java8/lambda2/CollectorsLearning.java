@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 import org.junit.Test;
 
-public class CollectorsTest {
+public class CollectorsLearning {
 
 	public void testIntConsumer(IntConsumer i, int v) {
 		i.accept(v);
