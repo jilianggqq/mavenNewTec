@@ -2,6 +2,7 @@ package edu.gqq.java8.lambda2;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.IntSummaryStatistics;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.stream.Collectors;
 
 import org.junit.Test;
 
-public class AdvancedOperations {
+public class CollectorsTest {
 
 	public void testIntConsumer(IntConsumer i, int v) {
 		i.accept(v);
@@ -27,6 +28,15 @@ public class AdvancedOperations {
 				(j, p) -> j.add(p.name.toUpperCase()), // accumulator
 				(j1, j2) -> j1.merge(j2), // combiner
 				StringJoiner::toString); // finisher
+
+		// Collector is hard to design, so I think I just use it right now.
+		// Collector<Person, ArrayList<String>, String> personNameCollector2 = Collector.of(() -> new ArrayList<String>(), // supplier
+		// (j, p) -> {
+		// j.add(p);
+		// return j;
+		// } , (a1, a2) -> {
+		// a1.addAll(a2);
+		// } , x->x.toString());
 
 		String names = persons.stream().collect(personNameCollector);
 
