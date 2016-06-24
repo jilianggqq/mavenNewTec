@@ -4,10 +4,14 @@ import static java.lang.System.out;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
 import org.junit.Test;
+
+import com.sun.crypto.provider.ARCFOURCipher;
+import com.sun.org.apache.regexp.internal.recompile;
 
 public class CombinationSum3 {
 	@Test
@@ -71,6 +75,38 @@ public class CombinationSum3 {
 	}
 
 	@Test
+	public void testCombinationSum32() {
+		List<List<Integer>> combinationSum32 = combinationSum32(9, 45);
+		combinationSum32.forEach(x -> out.println(Arrays.toString(x.toArray())));
+		
+		out.println(",B,c".split(",").length);
+	}
+
+	public static List<List<Integer>> combinationSum32(int k, int n) {
+		return com(1, k, n);
+	}
+
+	private static List<List<Integer>> com(int m, int k, int n) {
+		List<List<Integer>> arrs = new ArrayList<>();
+		if (k == 0 || m > n / k) {
+			return arrs;
+		}
+
+		if (k == 1 && n >= 1 && n <= 9) {
+			List<Integer> one = new ArrayList<>();
+			one.add(n);
+			arrs.add(one);
+			return arrs;
+		}
+		List<List<Integer>> containsm = com(m + 1, k - 1, n - m);
+		List<List<Integer>> discontainsm = com(m + 1, k, n);
+		containsm.forEach(x -> x.add(m));
+		arrs.addAll(containsm);
+		arrs.addAll(discontainsm);
+		return arrs;
+	}
+
+	@Test
 	public void testCombination() {
 		List<List<Integer>> list = combinationSum3(8, 40);
 		out.println("size is " + list.size());
@@ -94,7 +130,7 @@ public class CombinationSum3 {
 		});
 		return result;
 	}
-	
+
 	public static List<List<Integer>> combinationSum3fun(int k, int n) {
 		if (n > 45) {
 			return new ArrayList<>();

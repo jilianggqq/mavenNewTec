@@ -32,7 +32,7 @@ public class TestLambda1 {
 		return li.getLen(str);
 	}
 
-	public boolean isTrue(Predicate<String> ps, String str) {
+	public boolean isTrue(Predicate<? super String> ps, String str) {
 		return ps.test(str);
 	}
 
@@ -40,8 +40,7 @@ public class TestLambda1 {
 		return a + func.apply(str);
 	}
 
-	public static <K, V> void processPersonsWithFunction(Iterable<K> group,
-			Predicate<K> pre, Function<K, V> func, Consumer<V> consu) {
+	public static <K, V> void processPersonsWithFunction(Iterable<K> group, Predicate<K> pre, Function<K, V> func, Consumer<V> consu) {
 		for (K element : group) {
 			if (pre.test(element)) {
 				V info = func.apply(element);
@@ -51,8 +50,7 @@ public class TestLambda1 {
 	}
 
 	public static void main(String[] args) {
-		new TestLambda1()
-				.doSomeActions(() -> System.out.print("Hello "), "gqq");
+		new TestLambda1().doSomeActions(() -> System.out.print("Hello "), "gqq");
 		long len = new TestLambda1().getDoubleLength(new LengthInt() {
 
 			@Override
@@ -62,8 +60,7 @@ public class TestLambda1 {
 		}, "Hello");
 		System.out.println(len);
 
-		len = new TestLambda1().getDoubleLength(str -> str.length(),
-				"HelloWorld");
+		len = new TestLambda1().getDoubleLength(str -> str.length(), "HelloWorld");
 		System.out.println(len);
 
 		boolean res = new TestLambda1().isTrue((new Predicate<String>() {
@@ -79,7 +76,7 @@ public class TestLambda1 {
 				return t.contains("h");
 			}
 		}), "shell");
-		
+
 		Predicate<String> p = new Predicate<String>() {
 
 			@Override
@@ -88,7 +85,7 @@ public class TestLambda1 {
 				return true;
 			}
 		};
-		
+
 		new TestLambda1().isTrue(new Predicate<String>() {
 
 			@Override
@@ -96,19 +93,16 @@ public class TestLambda1 {
 				// TODO Auto-generated method stub
 				return true;
 			}
-		}.and(x->x.endsWith("t")), "test");
+		}.and(x -> x.endsWith("t")), "test");
 
 		System.out.println(res);
 
-		int res2 = new TestLambda1().addString((s) -> Integer.parseInt(s),
-				"33", 5);
+		int res2 = new TestLambda1().addString((s) -> Integer.parseInt(s), "33", 5);
 		System.out.println(res2);
 
 		// Aggregate Operations
-		List<String> myList = Arrays.asList("zhangsan", "lisi", "wangwu",
-				"liuliu");
-		myList.stream().filter(x -> x.contains("a")).map(x -> x.toUpperCase())
-				.forEach(x -> System.out.println(x));
+		List<String> myList = Arrays.asList("zhangsan", "lisi", "wangwu", "liuliu");
+		myList.stream().filter(x -> x.contains("a")).map(x -> x.toUpperCase()).forEach(x -> System.out.println(x));
 
 	}
 }

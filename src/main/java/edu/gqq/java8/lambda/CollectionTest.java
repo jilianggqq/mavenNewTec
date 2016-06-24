@@ -10,8 +10,8 @@ import java.util.stream.Collectors;
 public class CollectionTest {
 
 	public static void main(String[] args) {
-		List<PersonTest> persons = Arrays.asList(new PersonTest("Max", 18), new PersonTest("Peter", 23), new PersonTest("Pzter", 23), new PersonTest("Pamela", 23), new PersonTest(
-				"David", 12));
+		List<PersonTest> persons = Arrays.asList(new PersonTest("Max", 18), new PersonTest("Peter", 23), new PersonTest("Pzter", 23), new PersonTest("Pamela", 23),
+				new PersonTest("David", 12));
 		Map<Integer, List<PersonTest>> collect = persons.stream().collect(Collectors.groupingBy(x -> x.age));
 		collect.forEach((x, v) -> {
 			out.println(x);

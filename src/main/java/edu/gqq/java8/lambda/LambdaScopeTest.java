@@ -47,18 +47,20 @@ public class LambdaScopeTest {
 			// the error "local variables referenced from a lambda expression
 			// must be final or effectively final" in statement A:
 			//
-			// x = 99;
+//			x = 99;
 			int z = 27;
 
 			// Local variable z defined in an enclosing scope must be final or
 			// effectively final
 			// z = 25;
 
+			// this is the class which the method methodInFirstLevel belongs to.
 			Consumer<Integer> myConsumer = (y) -> {
 				System.out.println("x = " + x); // Statement A
 				System.out.println("z = " + z); // Statement A
 				System.out.println("y = " + y);
 				System.out.println("this.x = " + this.x);
+				System.out.println(this.getClass().getSimpleName());
 				System.out.println("LambdaScopeTest.this.x = "
 						+ LambdaScopeTest.this.x);
 			};
