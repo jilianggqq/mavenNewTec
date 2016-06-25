@@ -13,18 +13,36 @@ import java.util.stream.IntStream;
 import org.junit.Test;
 
 public class JumpGame {
-	
+
+	/**
+	 * maxLocation is the largest step that with i can move.<br>
+	 * if(i>step) that means we can not reach this i location, thus return false.
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public boolean canJump5(int[] nums) {
+		int maxLocation = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (maxLocation < i)
+				return false; // if previous maxLocation smaller than i, meaning we cannot reach location i, thus return false.
+			maxLocation = (i + nums[i]) > maxLocation ? i + nums[i] : maxLocation; // greedy:
+		}
+		return true;
+	}
+
 	@Test
-	public void testCanJump2(){
-		int[] nums = {3,2,1,0};
-		int[] nums1 = {3,2,2,0,1};
-		int[] nums2 = {2,1,0,0};
-//		canJump2(nums);
-//		assertFalse(canJump(nums));
-//		assertTrue(canJump(nums));
-//		assertTrue(canJump(nums1));
+	public void testCanJump2() {
+		int[] nums = { 3, 2, 1, 0 };
+		int[] nums1 = { 3, 2, 2, 0, 1 };
+		int[] nums2 = { 2, 1, 0, 0 };
+		// canJump2(nums);
+		// assertFalse(canJump(nums));
+		// assertTrue(canJump(nums));
+		// assertTrue(canJump(nums1));
 		assertFalse(canJump2(nums2));
 	}
+
 	public boolean canJump2(int[] nums) {
 		if (1 == nums.length)
 			return true;
