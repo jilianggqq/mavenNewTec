@@ -2,9 +2,9 @@ package edu.gqq.leetcode;
 
 import static java.lang.System.out;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -19,14 +19,14 @@ public class JumpGame {
 		int[] nums = { 3, 2, 1, 0 };
 		int[] nums1 = { 3, 2, 2, 0, 1 };
 		int[] nums2 = { 2, 1, 0, 0 };
-		int[] nums3= { 1, 0, 1 };
+		int[] nums3 = { 1, 0, 1 };
 		// canJump2(nums);
 		assertTrue(canJump4(nums));
 		assertTrue(canJump4(nums1));
 		assertFalse(canJump4(nums2));
 		assertFalse(canJump4(nums3));
 	}
-	
+
 	public boolean canJump4(int[] nums) {
 		for (int i = 0; i < nums.length - 1; i++) {
 			if (nums[i] == 0) {
@@ -35,6 +35,23 @@ public class JumpGame {
 				if (!result)
 					return false;
 			}
+		}
+		return true;
+	}
+
+	/**
+	 * maxLocation is the largest step that with i can move.<br>
+	 * if(i>step) that means we can not reach this i location, thus return false.
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public boolean canJump5(int[] nums) {
+		int maxLocation = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (maxLocation < i)
+				return false; // if previous maxLocation smaller than i, meaning we cannot reach location i, thus return false.
+			maxLocation = (i + nums[i]) > maxLocation ? i + nums[i] : maxLocation; // greedy:
 		}
 		return true;
 	}
