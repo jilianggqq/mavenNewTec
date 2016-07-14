@@ -2,9 +2,9 @@ package edu.gqq.leetcode;
 
 import static java.lang.System.out;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -13,6 +13,31 @@ import java.util.stream.IntStream;
 import org.junit.Test;
 
 public class JumpGame {
+
+	@Test
+	public void testCanJump4() {
+		int[] nums = { 3, 2, 1, 0 };
+		int[] nums1 = { 3, 2, 2, 0, 1 };
+		int[] nums2 = { 2, 1, 0, 0 };
+		int[] nums3 = { 1, 0, 1 };
+		// canJump2(nums);
+		assertTrue(canJump4(nums));
+		assertTrue(canJump4(nums1));
+		assertFalse(canJump4(nums2));
+		assertFalse(canJump4(nums3));
+	}
+
+	public boolean canJump4(int[] nums) {
+		for (int i = 0; i < nums.length - 1; i++) {
+			if (nums[i] == 0) {
+				// check is it a obstacle
+				boolean result = checkOb(i, nums);
+				if (!result)
+					return false;
+			}
+		}
+		return true;
+	}
 
 	/**
 	 * maxLocation is the largest step that with i can move.<br>
@@ -29,6 +54,56 @@ public class JumpGame {
 			maxLocation = (i + nums[i]) > maxLocation ? i + nums[i] : maxLocation; // greedy:
 		}
 		return true;
+	}
+
+	public boolean checkOb(int max, int[] nums) {
+		for (int i = 1; i < max; i++) {
+			if (nums[max - i] > max - i)
+				return true;
+		}
+		return false;
+	}
+
+	public boolean canJump3(int[] nums) {
+		if (1 == nums.length) {
+			return true;
+		}
+		boolean result = false;
+		int i = 0;
+		for (; i < nums.length - 1; i++) {
+			if (0 == nums[i])
+				break;
+			if (nums[i] > 0) {
+				result = testCanJump(i, nums);
+				if (result)
+					break;
+			}
+		}
+		if (nums[i] > 0)
+			result = true;
+		return result;
+	}
+
+	private boolean testCanJump(int i, int[] nums) {
+		if (i >= nums.length - 1) {
+			return true;
+		}
+		if (nums[i] == 0) {
+			return false;
+		}
+		return testCanJump(i + nums[i], nums);
+	}
+
+	@Test
+	public void testCanJump3() {
+		int[] nums = { 3, 2, 1, 0 };
+		int[] nums1 = { 3, 2, 2, 0, 1 };
+		int[] nums2 = { 2, 1, 0, 0 };
+		// canJump2(nums);
+		assertTrue(canJump3(nums));
+		assertTrue(canJump3(nums));
+		assertTrue(canJump3(nums1));
+		assertFalse(canJump3(nums2));
 	}
 
 	@Test
