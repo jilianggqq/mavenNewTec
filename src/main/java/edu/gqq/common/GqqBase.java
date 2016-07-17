@@ -9,6 +9,10 @@ public class GqqBase {
 		System.out.println(t);
 	}
 
+	static public <T> void print(T t) {
+		System.out.print(t);
+	}
+
 	public static void println() {
 		System.out.println();
 	}
