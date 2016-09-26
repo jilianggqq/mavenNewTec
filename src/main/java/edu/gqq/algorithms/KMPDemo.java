@@ -28,7 +28,7 @@ public class KMPDemo {
 			if (k == -1 || s.charAt(j) == s.charAt(k)) {
 				++k;
 				++j;
-				next[j] = next[k] + 1;
+				next[j] = k;
 			} else {
 				k = next[k];
 			}
@@ -40,6 +40,10 @@ public class KMPDemo {
 		int len1 = src.length();
 		int len2 = des.length();
 		int[] next = getNextTable(des);
+		for (int i = 0; i < next.length; i++) {
+			System.out.print(next[i]+" ");
+		}
+		System.out.println();
 		int i = 0, j = 0;
 		while (i < len1 && j < len2) {
 			System.out.println(String.format("{i:%s, j:%s}", i, j));
@@ -57,19 +61,19 @@ public class KMPDemo {
 	}
 
 
-//	@Test
-//	public void testKMPDemo() throws Exception {
-//		int[] des = { -1, 0, 0, 0, 1 };
-//		assertArrayEquals(des, getNextTable("abcab"));
-//		int[] des2 = { -1, 0, 0, 0, 0, 1, 2 };
-//		assertArrayEquals(des2, getNextTable("ABCDABD"));
-//	}
+	@Test
+	public void testKMPDemo() throws Exception {
+		int[] des = { -1, 0, 0, 0, 1 };
+		assertArrayEquals(des, getNextTable("abcab"));
+		int[] des2 = { -1, 0, 0, 0, 0, 1, 2 };
+		assertArrayEquals(des2, getNextTable("ABCDABD"));
+	}
 	
 	@Test
 	public void testStringMatch() throws Exception {
 		String str1 = "bbcabcdababcdabcdabde";
 		String str2 = "abcdabd";
 		int index = getFirstIndex(str2, str1);
-		assertEquals(14, index);
+		assertEquals(13, index);
 	}
 }
