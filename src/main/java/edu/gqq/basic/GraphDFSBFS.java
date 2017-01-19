@@ -6,14 +6,14 @@ import java.util.LinkedList;
 
 //This class represents a directed graph using adjacency list
 //representation
-public class GraphDFS {
+public class GraphDFSBFS {
 	private int V; // No. of vertices
 
 	// Array of lists for Adjacency List Representation
 	private LinkedList<Integer> adj[];
 
 	// Constructor
-	public GraphDFS(int v) {
+	public GraphDFSBFS(int v) {
 		this.V = v;
 		this.adj = new LinkedList[v];
 		for (int i = 0; i < V; i++) {
@@ -81,7 +81,7 @@ public class GraphDFS {
 	}
 
 	public static void main(String args[]) {
-		GraphDFS g = new GraphDFS(4);
+		GraphDFSBFS g = new GraphDFSBFS(4);
 
 		g.addEdge(0, 1);
 		g.addEdge(0, 2);
