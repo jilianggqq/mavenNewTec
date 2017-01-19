@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 
-public class GraphAjacent {
+public class GraphWithAjacent {
 	// Adjacency list
 	private Map<String, LinkedHashSet<String>> map = new HashMap<>();
 

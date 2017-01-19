@@ -1,21 +1,17 @@
 package edu.gqq.basic;
 
-import static org.junit.Assert.*;
-
 import java.util.LinkedList;
-
-import javax.lang.model.element.VariableElement;
 
 import org.junit.Test;
 
-public class GraphAjacentTest {
+public class GraphPrintAllPaths {
 
-	private static final String START = "A";
+	private static final String START = "B";
 	private static final String END = "E";
 
 	public static void main(String[] args) {
 		// this graph is directional
-		GraphAjacent graph = new GraphAjacent();
+		GraphWithAjacent graph = new GraphWithAjacent();
 		graph.addEdge("A", "B");
 		graph.addEdge("A", "C");
 		graph.addEdge("B", "A");
@@ -31,38 +27,23 @@ public class GraphAjacentTest {
 		graph.addEdge("F", "B");
 		graph.addEdge("F", "C");
 		graph.addEdge("F", "E");
-		LinkedList<String> stack = new LinkedList<String>();
 		LinkedList<String> visited = new LinkedList<String>();
-		stack.add(START);
-		System.out.println(START);
-		GraphAjacentTest grftest = new GraphAjacentTest();
-		// grftest.depthFirst(graph, visited);
-//		grftest.dfsWithRecursion(graph, stack, visited);
+		visited.add(START);
+		GraphPrintAllPaths grftest = new GraphPrintAllPaths();
+		grftest.depthFirst(graph, visited, END);
 	}
-	
+
 	@Test
-	public void testDFSRecursion() throws Exception {
-		GraphAjacent g = new GraphAjacent();
-//		graph.addEdge("A", "B");
-//		graph.addEdge("B", "C");
-//		graph.addEdge("C", "E");
-//		graph.addEdge("E", "D");
-//		graph.addEdge("D", "C");
-//		graph.addEdge("E", "B");
-//		graph.addEdge("B", "E");
-//		graph.addEdge("B", "F");
-//		graph.addEdge("F", "G");
-		g.addEdge("0", "1");
-        g.addEdge("0", "2");
-        g.addEdge("1", "2");
-        g.addEdge("2", "0");
-        g.addEdge("2", "3");
-        g.addEdge("3", "3");
-		LinkedList<String> stack = new LinkedList<String>();
-		LinkedList<String> visited = new LinkedList<String>();
-		stack.add("2");
-		visited.add("2");
-		dfsWithRecursion(g, stack, visited);
+	public void testPrintAllPath1() throws Exception {
+		GraphWithAjacent graph = new GraphWithAjacent();
+		graph.addEdge("0", "1");
+		graph.addEdge("0", "2");
+		graph.addEdge("1", "2");
+		graph.addEdge("2", "0");
+		graph.addEdge("2", "3");
+		LinkedList<String> visited = new LinkedList<>();
+		visited.add("0");
+		depthFirst(graph, visited, "3");
 	}
 
 	/**
@@ -71,7 +52,7 @@ public class GraphAjacentTest {
 	 * @param graph
 	 * @param stack
 	 */
-	private void dfsWithRecursion(GraphAjacent graph, LinkedList<String> stack, LinkedList<String> visited) {
+	private void dfsWithRecursion(GraphWithAjacent graph, LinkedList<String> stack, LinkedList<String> visited) {
 		LinkedList<String> nodes = graph.adjacentNodes(stack.getLast());
 		for (String node : nodes) {
 			if (stack.contains(node) || visited.contains(node)) {
@@ -85,14 +66,14 @@ public class GraphAjacentTest {
 		}
 	}
 
-	private void depthFirst(GraphAjacent graph, LinkedList<String> visited) {
+	private void depthFirst(GraphWithAjacent graph, LinkedList<String> visited, String end) {
 		LinkedList<String> nodes = graph.adjacentNodes(visited.getLast());
 		// examine adjacent nodes
 		for (String node : nodes) {
 			if (visited.contains(node)) {
 				continue;
 			}
-			if (node.equals(END)) {
+			if (node.equals(end)) {
 				visited.add(node);
 				printPath(visited);
 				visited.removeLast();
@@ -100,11 +81,11 @@ public class GraphAjacentTest {
 			}
 		}
 		for (String node : nodes) {
-			if (visited.contains(node) || node.equals(END)) {
+			if (visited.contains(node) || node.equals(end)) {
 				continue;
 			}
 			visited.addLast(node);
-			depthFirst(graph, visited);
+			depthFirst(graph, visited, end);
 			visited.removeLast();
 		}
 	}
