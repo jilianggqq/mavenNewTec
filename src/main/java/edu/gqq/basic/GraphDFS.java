@@ -43,6 +43,30 @@ public class GraphDFS {
 		}
 	}
 
+	// a function used by BFS
+	private void BFSUtil(int v) {
+		// Create a queue for BFS
+		LinkedList<Integer> queue = new LinkedList<>();
+		// Mark all the vertices as not visited(By default
+		// set as false)
+		boolean[] isvisited = new boolean[V];
+		queue.add(v);
+		isvisited[v] = true;
+		while (!queue.isEmpty()) {
+			// dequeue from the queue, and visit the element.
+			Integer e = queue.poll();
+			out.println(e);
+
+			LinkedList<Integer> list = adj[e];
+			for (Integer data : list) {
+				if (!isvisited[data]) {
+					isvisited[data] = true;
+					queue.add(data);
+				}
+			}
+		}
+	}
+
 	// The function to do DFS traversal. It uses recursive DFSUtil()
 	public void DFS(int v) {
 		// Mark all the vertices as not visited(set as
@@ -50,6 +74,10 @@ public class GraphDFS {
 		boolean[] visited = new boolean[V];
 		// Call the recursive helper function to print DFS traversal
 		DFSUtil(v, visited);
+	}
+
+	public void BFS(int v) {
+		BFSUtil(v);
 	}
 
 	public static void main(String args[]) {
@@ -65,5 +93,7 @@ public class GraphDFS {
 		System.out.println("Following is Depth First Traversal " + "(starting from vertex 2)");
 
 		g.DFS(2);
+		System.out.println("Following is Breadth First Traversal " + "(starting from vertex 0)");
+		g.BFS(0);
 	}
 }
