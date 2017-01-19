@@ -19,6 +19,10 @@ public class GraphWithAjacent {
 		adjacent.add(node2);
 	}
 
+	public void addEdge(int node1, int node2) {
+		addEdge(String.valueOf(node1), String.valueOf(node2));
+	}
+	
 	public void addTwoWayVertex(String node1, String node2) {
 		addEdge(node1, node2);
 		addEdge(node2, node1);

@@ -66,7 +66,7 @@ public class GraphPrintAllPaths {
 		}
 	}
 
-	private void depthFirst(GraphWithAjacent graph, LinkedList<String> visited, String end) {
+	public void depthFirst(GraphWithAjacent graph, LinkedList<String> visited, String end) {
 		LinkedList<String> nodes = graph.adjacentNodes(visited.getLast());
 		// examine adjacent nodes
 		for (String node : nodes) {
