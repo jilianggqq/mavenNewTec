@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 import edu.gqq.common.G;
+import edu.gqq.generic.Out;
 
 public class WordBreak2WithGraph {
 	public List<String> wordBreak(String s, Set<String> wordDict) {
@@ -18,6 +19,8 @@ public class WordBreak2WithGraph {
 		for (int i = 0; i < len; i++) {
 			for (int j = i + 1; j <= len; j++) {
 				if (wordDict.contains(s.substring(i, j))) {
+					// debug: test the graph structure.
+					// System.out.println(i + "--->" + j);
 					gwa.addEdge(i, j);
 				}
 			}
@@ -44,6 +47,8 @@ public class WordBreak2WithGraph {
 		wordDict.add("code");
 		wordDict.add("tcode");
 		wordDict.add("lee");
+		wordDict.add("e");
+		wordDict.add("le");
 		wordDict.add("leetcode");
 		List<String> results = wordBreak(s, wordDict);
 		for (String string : results) {
@@ -53,11 +58,14 @@ public class WordBreak2WithGraph {
 
 	public void depthFirstFindPaths(String s, Graph graph, LinkedList<Integer> visited, Integer end,
 			LinkedList<LinkedList<String>> results) {
-		Integer ele = visited.getFirst();
+		Integer ele = visited.getLast();
 		LinkedList<Integer> adjacentNodes = graph.adjacentNodes(ele);
 		for (Integer i : adjacentNodes) {
 			if (i.equals(end)) {
 				LinkedList<String> tmp = new LinkedList<>();
+				// test visited array.
+				// visited.forEach(x -> System.out.print(x + " "));
+				// System.out.println();
 				for (int j = 1; j < visited.size(); j++) {
 					tmp.add(s.substring(visited.get(j - 1), visited.get(j)));
 				}
@@ -69,8 +77,7 @@ public class WordBreak2WithGraph {
 			if (!visited.contains(i) && !i.equals(end)) {
 				visited.add(i);
 				depthFirstFindPaths(s, graph, visited, end, results);
-//				visited.removeLast();
-				visited.pop();
+				visited.removeLast();
 			}
 		}
 	}
