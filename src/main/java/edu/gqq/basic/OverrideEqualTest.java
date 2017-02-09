@@ -1,12 +1,15 @@
 package edu.gqq.basic;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
 
 import org.junit.Test;
+
+//import com.google.common.base.Objects;
 
 public class OverrideEqualTest {
 
@@ -34,6 +37,34 @@ public class OverrideEqualTest {
 		for (Map.Entry<NewPoint, Integer> entry : counts.entrySet()) {
 			System.out.println("(" + entry.getKey().x + "," + entry.getKey().y + ")" + " " + entry.getValue());
 		}
+
+		HashSet<NewPoint2> set3 = new HashSet<>();
+		set3.add(new NewPoint2(3, 2));
+		set3.add(new NewPoint2(3, 2));
+		assertEquals(1, set3.size());
+	}
+}
+
+class NewPoint2 extends Point {
+	public NewPoint2() {
+		super();
+	}
+
+	public NewPoint2(int x, int y) {
+		super(x, y);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		NewPoint2 np = (NewPoint2) obj;
+		return np.x == this.x && np.y == this.y;
+	}
+
+	@Override
+	public int hashCode() {
+//		 return Objects.hash(this,x, this.y);
+		 return com.google.common.base.Objects.hashCode(this.x, this.y);
+//		return x + y;
 	}
 }
 
