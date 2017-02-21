@@ -27,14 +27,14 @@ public class MinMaxPriorityQueueTest2 {
 }
 
 class Command1 extends FIFOCommand {
-	
+
 	public Command1(int id) {
 		super(id, 1);
 	}
 }
 
 class Command2 extends FIFOCommand {
-	
+
 	public Command2(int id) {
 		super(id, 2);
 	}
@@ -45,11 +45,11 @@ abstract class FIFOCommand implements Comparable<FIFOCommand> {
 	final long seqNum;
 	protected int priority;
 	protected int id;
-	
+
 	public FIFOCommand(int id, int prio) {
 		seqNum = seq.getAndIncrement();
-		 this.priority = prio;
-		 this.id = id;
+		this.priority = prio;
+		this.id = id;
 	}
 
 	@Override
