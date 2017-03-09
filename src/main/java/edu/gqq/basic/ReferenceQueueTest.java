@@ -1,4 +1,4 @@
-package edu.gqq.cycle;
+package edu.gqq.basic;
 
 import java.io.Serializable;
 import java.lang.ref.PhantomReference;

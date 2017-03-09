@@ -1,4 +1,4 @@
-package edu.gqq.util;
+package edu.gqq.common;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;

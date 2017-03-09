@@ -1,11 +1,11 @@
-package edu.gqq.fortest;
+package edu.gqq.basic;
 
 import java.text.DecimalFormat;
 
 import org.junit.Before;
 import org.junit.Test;
 
-public class ChartTestTest {
+public class DecimalTest2 {
 
 	@Before
 	public void setUp() throws Exception {
@@ -13,18 +13,18 @@ public class ChartTestTest {
 
 	@Test
 	public void testroundToNextSignificant() {
-		float round1 = ChartTest.roundToNextSignificant(0);
-		float round2 = ChartTest.roundToNextSignificant(2);
-		float round3 = ChartTest.roundToNextSignificant(3);
+		float round1 = DecimalTest.roundToNextSignificant(0);
+		float round2 = DecimalTest.roundToNextSignificant(2);
+		float round3 = DecimalTest.roundToNextSignificant(3);
 		System.out.println(String.format("%f,%f,%f", round1, round2, round3));
 	}
 
 	@Test
 	public void testgetDecimals() {
-		int decimals = ChartTest.getDecimals(0f);
+		int decimals = DecimalTest.getDecimals(0f);
 		System.out.println(String.format("%d", decimals));
 
-		String calcFormats = ChartTest.calcFormats(3333.2385f);
+		String calcFormats = DecimalTest.calcFormats(3333.2385f);
 		System.out.println(String.format("%s", calcFormats));
 
 		// just test DecimalFormatter.

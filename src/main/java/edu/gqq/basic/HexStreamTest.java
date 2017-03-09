@@ -1,4 +1,4 @@
-package edu.gqq.encode;
+package edu.gqq.basic;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import edu.gqq.common.G;
 
-public class IOUtil {
+public class HexStreamTest {
 	/**
 	 * 把文件内容变成16进制的，并且通过控制台打印出来。 超过10个字节换行
 	 * 

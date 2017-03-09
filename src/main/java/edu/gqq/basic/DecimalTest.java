@@ -1,8 +1,8 @@
-package edu.gqq.fortest;
+package edu.gqq.basic;
 
 import java.text.DecimalFormat;
 
-public class ChartTest {
+public class DecimalTest {
 
 	/**
 	 * rounds the given number to the next significant number

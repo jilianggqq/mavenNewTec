@@ -1,4 +1,7 @@
-package edu.gqq.common;
+package edu.gqq.basic;
+
+import edu.gqq.common.G;
+import edu.gqq.common.GqqBase;
 
 class Class1 {
 	public void test() {
@@ -16,7 +19,7 @@ interface Interface1 {
  * @author gqq
  *
  */
-public class Anonymous {
+public class AnonymousTest {
 	public static void main(String[] args) {
 		// 匿名的Class1
 		new Class1(){

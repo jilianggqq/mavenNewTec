@@ -1,4 +1,4 @@
-package edu.gqq.encode;
+package edu.gqq.basic;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;

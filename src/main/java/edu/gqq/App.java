@@ -2,8 +2,8 @@ package edu.gqq;
 
 import org.apache.log4j.Logger;
 
+import edu.gqq.common.Log4jUtil;
 import edu.gqq.guava.MutliMapTest;
-import edu.gqq.util.Log4jUtil;
 
 /**
  * Hello world!

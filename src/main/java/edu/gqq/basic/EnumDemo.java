@@ -1,4 +1,4 @@
-package edu.gqq.enumtest;
+package edu.gqq.basic;
 
 import static java.lang.System.out;
 
