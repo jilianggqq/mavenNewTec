@@ -5,6 +5,7 @@ public class MultipleInterfacesTest implements IFirstInterface, ISecondInterface
 	public static void main(String[] args) {
 		MultipleInterfacesTest m = new MultipleInterfacesTest();
 
-		System.out.println(m.i);
+		// first interface and second interface both have i, compile error.
+		// System.out.println(m.i);
 	}
 }

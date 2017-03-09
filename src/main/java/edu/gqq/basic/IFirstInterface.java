@@ -1,5 +1,5 @@
 package edu.gqq.basic;
 
 public interface IFirstInterface {
-	// int i = 100;
+	 int i = 100;
 }

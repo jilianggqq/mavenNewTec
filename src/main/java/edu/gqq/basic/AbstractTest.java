@@ -13,6 +13,7 @@ class impel extends AbstractTest {
 
 	public impel(int i, int j) {
 		super(i, j);
+		// we must use super(i, j), otherwise compile errors.
 		// super();
 		// TODO Auto-generated constructor stub
 	}

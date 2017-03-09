@@ -30,7 +30,7 @@ public class ArrayListSetTest {
 
 		List<Integer> in2 = new ArrayList<>(in);
 		in.set(0, 5);
-		// this example shows new ArrayList(list) is a deepcopy method.
+		// 2. this example shows new ArrayList(list) is a deepcopy method.
 		in.forEach(x -> System.out.print(" " + x));// 5,3
 		System.out.println();
 		in2.forEach(x -> System.out.print(" " + x));// 4,3
