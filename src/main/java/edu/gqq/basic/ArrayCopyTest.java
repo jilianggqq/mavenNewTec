@@ -1,6 +1,10 @@
 package edu.gqq.basic;
 
+import static org.junit.Assert.*;
+
 import java.util.Arrays;
+
+import org.junit.Test;
 
 import edu.gqq.common.G;
 
@@ -19,5 +23,23 @@ public class ArrayCopyTest {
 		// System.out.println(a);
 		// }
 		G.println(Arrays.toString(arr2));
+	}
+
+	@Test
+	public void testDeepCopy2dArray() throws Exception {
+		int[][] src = { { 2, 3 }, { 4, 5 } };
+		int [][] des = deepCopy(src);
+		System.out.println(Arrays.deepToString(des));
+	}
+
+	private static int[][] deepCopy(int[][] source) {
+		if (source == null) {
+			return null;
+		}
+		int[][] des = new int[source.length][];
+		for (int i = 0; i < source.length; i++) {
+			des[i] = Arrays.copyOf(source[i], source[i].length);
+		}
+		return des;
 	}
 }
