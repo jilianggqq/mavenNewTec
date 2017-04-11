@@ -10,7 +10,7 @@ public class ArrayListDeepCopyTest {
 		testors.add(new Testor(1, 2));
 		ArrayList<Testor> testors2 = new ArrayList<>(testors);
 		testors2.get(0).a = 3;
-		G.println(testors.get(0).a);
+		G.println(testors.get(0).a); 
 
 		ArrayList<Testor> testors3 = new ArrayList<>();
 		testors3.add(new Testor(testors.get(0).a, testors.get(0).b));
