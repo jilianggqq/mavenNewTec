@@ -62,9 +62,9 @@ class NewPoint2 extends Point {
 
 	@Override
 	public int hashCode() {
-//		 return Objects.hash(this,x, this.y);
-		 return com.google.common.base.Objects.hashCode(this.x, this.y);
-//		return x + y;
+		// return Objects.hash(this,x, this.y);
+		return com.google.common.base.Objects.hashCode(this.x, this.y);
+		// return x + y;
 	}
 }
 
@@ -89,6 +89,8 @@ class NewPoint extends Point {
 		hash = 53 * hash + this.x;
 		hash = 53 * hash + this.y;
 		return hash;
+		// this solution is also ok.
+		// return x * 31 + y * 17;
 	}
 }
 
