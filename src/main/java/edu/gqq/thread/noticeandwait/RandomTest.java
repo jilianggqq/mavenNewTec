@@ -1,16 +1,12 @@
 package edu.gqq.thread.noticeandwait;
 
-import java.security.Timestamp;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 
-import static java.lang.System.out;
+import edu.gqq.common.Log4jUtil;
 import edu.gqq.common.RandomUtil;
-import edu.gqq.util.Log4jUtil;
 
 class ModifyList {
 	static Logger logger = Log4jUtil.getLogger(ModifyList.class);

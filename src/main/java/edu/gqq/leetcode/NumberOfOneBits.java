@@ -2,7 +2,7 @@ package edu.gqq.leetcode;
 
 import org.apache.log4j.Logger;
 
-import edu.gqq.util.Log4jUtil;
+import edu.gqq.common.Log4jUtil;
 
 public class NumberOfOneBits {
 	static Logger logger = Log4jUtil.getLogger(NumberOfOneBits.class);

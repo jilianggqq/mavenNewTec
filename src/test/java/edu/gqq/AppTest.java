@@ -2,7 +2,6 @@ package edu.gqq;
 
 import org.apache.log4j.Logger;
 
-import edu.gqq.util.Log4jUtil;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

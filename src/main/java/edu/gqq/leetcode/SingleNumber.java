@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import org.apache.log4j.Logger;
 
-import edu.gqq.util.Log4jUtil;
+import edu.gqq.common.Log4jUtil;
 
 public class SingleNumber {
 	static Logger logger = Log4jUtil.getLogger(SingleNumber.class);

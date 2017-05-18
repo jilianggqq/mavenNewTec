@@ -7,8 +7,8 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import edu.gqq.common.Log4jUtil;
 import edu.gqq.reflect.Person;
-import edu.gqq.util.Log4jUtil;
 
 public class ClassReflectTest1 {
 	static Logger logger = Log4jUtil.getLogger(ClassReflectTest1.class);

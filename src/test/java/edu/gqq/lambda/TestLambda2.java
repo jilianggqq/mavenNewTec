@@ -8,12 +8,10 @@ import java.util.function.Predicate;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import junit.framework.Assert;
-import junit.framework.TestCase;
-
 import org.apache.log4j.Logger;
 
-import edu.gqq.util.Log4jUtil;
+import edu.gqq.common.Log4jUtil;
+import junit.framework.TestCase;
 
 public class TestLambda2 extends TestCase {
 	Logger logger = Log4jUtil.getLogger(TestLambda2.class);

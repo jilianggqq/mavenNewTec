@@ -6,11 +6,8 @@ import java.util.function.Consumer;
 
 import org.apache.log4j.Logger;
 
-import edu.gqq.util.Log4jUtil;
+import edu.gqq.common.Log4jUtil;
 import junit.framework.TestCase;
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 public class TestThreeMainInterface extends TestCase {
 	

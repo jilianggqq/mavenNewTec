@@ -26,4 +26,8 @@ public class ConvertArrayToList {
 		List<Integer> ints = new ArrayList<>();
 		Arrays.stream(intArrs).forEach(x -> ints.add(x));
 	}
+
+	// public static void main(String[] args) {
+	//
+	// }
 }

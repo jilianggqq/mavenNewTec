@@ -1,14 +1,11 @@
 package edu.gqq.reflect.two;
 
+import static java.lang.System.out;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.lang.reflect.Member;
-import static java.lang.System.out;
-import static edu.gqq.util.Log4jUtil.logger;
-//private enum ClassMember {
-//	CONSTRUCTOR, FIELD, METHOD, CLASS, ALL
-//}
+import java.lang.reflect.Method;
 
 public class ClassSpy {
 	public static void main(String... args) {
