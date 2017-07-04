@@ -30,7 +30,7 @@ public class FailSafeAndFailFast {
 		while (iterator.hasNext()) {
 			Integer val = (Integer) iterator.next();
 			System.out.println(val);
-			list.add(3); //This will throw ConcurrentModificationException
+			list.add(3); // This will throw ConcurrentModificationException
 		}
 	}
 
