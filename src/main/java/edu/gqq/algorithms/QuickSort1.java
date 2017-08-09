@@ -1,4 +1,4 @@
-package edu.gqq.basic;
+package edu.gqq.algorithms;
 
 import java.util.Arrays;
 
