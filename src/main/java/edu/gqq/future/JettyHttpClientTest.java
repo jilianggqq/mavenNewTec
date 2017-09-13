@@ -42,7 +42,10 @@ public class JettyHttpClientTest {
 			for (String name : headers.getFieldNamesCollection()) {
 				for (String value : headers.getValuesList(name)) {
 					// headers.add(name, value);
-					System.out.println(name + "->" + value);
+					if (name.equals("Content-Type")) {
+						
+						System.out.println(name + " -> " + value);
+					}
 				}
 			}
 		}).send(new BufferingResponseListener() {
@@ -51,6 +54,8 @@ public class JettyHttpClientTest {
 			public void onComplete(Result result) {
 				System.out.println("********************complete******************************");
 				// TODO Auto-generated method stub
+				String encoding = getEncoding();
+				System.out.println(encoding);
 				String res = getContentAsString();
 //				System.out.println(res);
 				System.out.println(Thread.currentThread().getName());
