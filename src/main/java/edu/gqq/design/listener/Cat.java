@@ -1,4 +1,4 @@
-package edu.gqq.designpattern.listener;
+package edu.gqq.design.listener;
 
 import java.util.ArrayList;
 import java.util.List;

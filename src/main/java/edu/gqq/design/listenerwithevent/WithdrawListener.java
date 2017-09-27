@@ -1,4 +1,4 @@
-package edu.gqq.designpattern.listenerwithevent;
+package edu.gqq.design.listenerwithevent;
 
 public interface WithdrawListener {
 	void update(WithdrawEvent we);

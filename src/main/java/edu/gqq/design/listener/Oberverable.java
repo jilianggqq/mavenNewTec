@@ -1,4 +1,4 @@
-package edu.gqq.designpattern.listener;
+package edu.gqq.design.listener;
 
 public interface Oberverable {
 	void addObserver(Observer o);

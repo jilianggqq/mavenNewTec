@@ -1,4 +1,4 @@
-package edu.gqq.designpattern.listenerwithevent;
+package edu.gqq.design.listenerwithevent;
 
 import static java.lang.System.out;
 public class Email implements WithdrawListener {

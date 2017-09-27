@@ -1,4 +1,4 @@
-package edu.gqq.designpattern.listenerwithevent;
+package edu.gqq.design.listenerwithevent;
 
 import java.util.EventObject;
 
