@@ -6,14 +6,21 @@ public class Elevator {
 	}
 
 	private DIRECTION direction = DIRECTION.NONE;
+	
+	// is it moving.
 	private Boolean move = false;
 
+	// requested floors. if floor is requested, floors[i] = true;
 	private boolean[] floors;
 	private int countUp = 0;
 	private int countDown = 0;
+	
+	// current floor.
 	private int cf = 0;
 	private int min = Constants.MIN_FLOOR;
 	private int max = Constants.MAX_FLOOR;
+
+	// floor numbers.
 	private int numFloors;
 
 	private ElevatorEventListener elEventListener;
@@ -37,6 +44,9 @@ public class Elevator {
 		return -1;
 	}
 
+	/**
+	 * just move one level. like 3 -> 4
+	 */
 	public void moveNext() {
 		if (!move) {
 			move = (direction != DIRECTION.NONE);
@@ -69,6 +79,10 @@ public class Elevator {
 		}
 	}
 
+	/**
+	 * ask the elevator go to certain floor.
+	 * @param gf
+	 */
 	public void setGoalFloor(int gf) {
 		if ((gf < 0) || (gf >= numFloors))
 			throw new IllegalArgumentException();

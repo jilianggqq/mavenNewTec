@@ -9,6 +9,7 @@ public class ElevatorController implements IElevatorController, ElevatorEventLis
 	private int numElevators;
 	private int numFloors;
 	private Elevator[] elevators = null;
+	// Queue<Integer> means required floors.
 	private ArrayList<Queue<Integer>> passengers = null;
 
 	private void initElevators(int numElevators, int numFloors) {
@@ -30,6 +31,12 @@ public class ElevatorController implements IElevatorController, ElevatorEventLis
 			passengers.add(i, new LinkedList<Integer>());
 	}
 
+	/**
+	 * how many elevators
+	 * how many floors
+	 * @param numElevators
+	 * @param numFloors
+	 */
 	public ElevatorController(int numElevators, int numFloors) {
 		initFloors(numFloors);
 		initElevators(numElevators, numFloors);
@@ -83,6 +90,9 @@ public class ElevatorController implements IElevatorController, ElevatorEventLis
 		elevator.moveToFloor(floor);
 	}
 
+	/**
+	 * you need to understand pickup method.
+	 */
 	@Override
 	public void pickup(int floor, boolean direction) {
 		if ((floor < 0) || (floor >= numFloors))
@@ -93,7 +103,7 @@ public class ElevatorController implements IElevatorController, ElevatorEventLis
 		int[] elevatorIDs = new int[numElevators];
 		for (int i = 0; i < numElevators; i++)
 			elevatorIDs[i] = i;
-		StdRandom.shuffle(elevatorIDs);
+//		StdRandom.shuffle(elevatorIDs);
 
 		Elevator.DIRECTION userDirection = (direction) ? (Elevator.DIRECTION.UP) : (Elevator.DIRECTION.DOWN);
 		int minDistance = numFloors;
