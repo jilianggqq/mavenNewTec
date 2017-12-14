@@ -92,7 +92,7 @@ public class Elevator {
 					direction = downCount == 0 ? Direction.None : Direction.Down;
 				}
 				if (_stopListener != null) {
-					_stopListener.onStop();
+					_stopListener.onStop(this);
 				}
 			}
 		} else {
@@ -106,7 +106,7 @@ public class Elevator {
 					// change direction
 					direction = upCount == 0 ? Direction.None : Direction.Up;
 				}
-				_stopListener.onStop();
+				_stopListener.onStop(this);
 			}
 		}
 	}
