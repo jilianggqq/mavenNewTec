@@ -3,6 +3,11 @@ package edu.gqq.algorithms;
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * http://www.geeksforgeeks.org/reservoir-sampling/
+ * @author gqq
+ *
+ */
 //An efficient Java program to randomly
 //select k items from a stream of items
 public class ReseviorSampling {
