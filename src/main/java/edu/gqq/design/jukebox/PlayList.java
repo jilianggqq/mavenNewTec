@@ -24,4 +24,8 @@ public class PlayList {
 	public void addSong(Song s) {
 		this.list.add(s);
 	}
+	
+	public void shuffle() {
+		
+	}
 }
