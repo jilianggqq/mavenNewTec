@@ -1,4 +1,9 @@
-public class Solution{
+package edu.gqq.dropbox;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class LetterCombinationsPhoneNumber{
 	private static final String[] KEYS = new String[]{"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
 
 	public List<String> letterCombinations(String digits){

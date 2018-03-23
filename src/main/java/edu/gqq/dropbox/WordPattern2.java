@@ -1,8 +1,13 @@
+package edu.gqq.dropbox;
+
+import java.util.HashMap;
+import java.util.Map;
+
 // Difference between 290 and 291:
 // In 291, the matching words are not given, so we need to use a character in the pattern to match different length of substrings 
 //in the input string with backtracking. We keep trying until we go through the the input string and the pattern.
 
-public class Solution{
+public class WordPattern2{
 	public boolean wordPatternMatch(String pattern, String str){
         Map<Character, String> hMap = new HashMap<>();
 

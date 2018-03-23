@@ -1,3 +1,5 @@
+package edu.gqq.dropbox;
+
 // Given a 2-d array of "sharpness" values. Find a path from the leftmost column to the rightmost column which has the highest minimum sharpness.
 // Output the highest minimum sharpness. Each move can only move to the top right, right or bottom right grid.
 // Example: 3*3 matrix
@@ -7,9 +9,7 @@
 // The path with highest minimum sharpness is 7-->7-->8, because 7 is the highest minimum value in all the paths.
 // Idea: Use DP dp[r][c] = min(max(dp[r-1][c-1], dp[r][c-1], dp[r+1][c-1]), grid[r][c])
 
-import java.util.*;
-
-public class Solution{
+public class HighestMinimumSharpness{
 	public int highestMinVal(int[][] grid){
 		if(grid == null || grid.length == 0 || grid[0].length == 0) return 0;
 
@@ -42,7 +42,7 @@ public class Solution{
 	}
 
 	public static void main(String[] args){
-		Solution so = new Solution();
+		HighestMinimumSharpness so = new HighestMinimumSharpness();
 
 		int[][] grid = new int[][]{
 			{5,7,2},

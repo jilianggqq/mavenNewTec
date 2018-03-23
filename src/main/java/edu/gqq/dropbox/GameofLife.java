@@ -1,6 +1,16 @@
+package edu.gqq.dropbox;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+import edu.gqq.dropbox.Solution.Coord;
+
+
 // Easy version: Build a new board, using extra space
 // time O(m*n), space O(m*n)
-public class Solution{
+public class GameofLife{
 	public void gameOfLife(int[][] board){
 		if(board == null || board[0].length == 0) return;
 
@@ -47,7 +57,7 @@ public class Solution{
 //<---------------------------------------------------------------------------------------------------------------------------------------->
 // In place, use two bits to store (next state, current state)
 // time O(m*n), space O(m*n)
-public class Solution{
+class Solution2{
 	public void gameOfLife(int[][] board){
 		if(board == null || board[0].length == 0) return;
 
@@ -91,7 +101,7 @@ public class Solution{
 // Idea: we do not store the whole board. We only store the live cells in a set and other cells are dead by default.
 // We read in the board data line by line and compute the new cell state using 3 lines each time. Then throw away the top line and read in a new line.
 // I/O API: int[] readLine(), void writeLine(int[] array)
-public class Solution{
+class Solution3{
 	public void gameOfLife(){
 		int[] prev = null, cur = null, next = null;
 		int[] pointer = null;
