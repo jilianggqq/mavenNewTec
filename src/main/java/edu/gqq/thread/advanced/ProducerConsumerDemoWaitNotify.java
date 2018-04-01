@@ -1,4 +1,4 @@
-package edu.gqq.interview;
+package edu.gqq.thread.advanced;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -48,6 +48,16 @@ class Producer extends Thread {
 				int val = random.nextInt();
 				queue.offer(val);
 				System.out.println("we produced " + val);
+				
+				// it is a lazy producer.
+				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
 				queue.notifyAll();
 			}
 		}

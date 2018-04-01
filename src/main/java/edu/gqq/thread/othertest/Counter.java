@@ -1,4 +1,4 @@
-package edu.gqq.thread;
+package edu.gqq.thread.othertest;
 
 import edu.gqq.common.GqqBase;
 
@@ -23,12 +23,12 @@ public class Counter extends GqqBase {
 
 			@Override
 			public void run() {
-				// try {
-				// // 加了这句之后，可以让t2延时运行
-				// Thread.sleep(1000);
-				// } catch (InterruptedException e) {
-				// e.printStackTrace();
-				// }
+//				try {
+//					// 加了这句之后，可以让t2延时运行
+//					Thread.sleep(1000);
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}
 				ct.add(3);
 			}
 		}, "t1");

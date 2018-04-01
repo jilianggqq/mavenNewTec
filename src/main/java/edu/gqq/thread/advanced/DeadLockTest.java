@@ -1,4 +1,4 @@
-package edu.gqq.interview;
+package edu.gqq.thread.advanced;
 
 public class DeadLockTest {
 	public static void main(String[] args) {

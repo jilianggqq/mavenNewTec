@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.gqq.thread;
+package edu.gqq.thread.othertest;
 
 import static org.junit.Assert.*;
 

@@ -1,4 +1,4 @@
-package edu.gqq.thread;
+package edu.gqq.thread.othertest;
 
 import edu.gqq.common.GqqBase;
 

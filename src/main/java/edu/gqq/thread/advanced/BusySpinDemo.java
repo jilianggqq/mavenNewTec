@@ -1,4 +1,4 @@
-package edu.gqq.interview;
+package edu.gqq.thread.advanced;
 
 import java.util.ArrayList;
 import java.util.List;
