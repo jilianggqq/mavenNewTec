@@ -9,9 +9,14 @@ public abstract class AbstractTest {
 	}
 }
 
-class impel extends AbstractTest {
+class Impel extends AbstractTest {
 
-	public impel(int i, int j) {
+	/**
+	 * you must define this constructor
+	 * @param i
+	 * @param j
+	 */
+	public Impel(int i, int j) {
 		super(i, j);
 		// we must use super(i, j), otherwise compile errors.
 		// super();
