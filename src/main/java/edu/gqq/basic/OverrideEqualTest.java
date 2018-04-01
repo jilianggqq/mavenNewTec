@@ -89,6 +89,7 @@ class NewPoint extends Point {
 		hash = 53 * hash + this.x;
 		hash = 53 * hash + this.y;
 		return hash;
+
 		// this solution is also ok.
 		// return x * 31 + y * 17;
 	}
