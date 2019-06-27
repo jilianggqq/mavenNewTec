@@ -7,11 +7,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.junit.Test;
 
-import com.sun.org.apache.bcel.internal.generic.AALOAD;
-
-import sun.reflect.generics.tree.VoidDescriptor;
-
-import static org.junit.Assert.*;
 import static java.lang.System.out;
 
 public class LargestRangle {

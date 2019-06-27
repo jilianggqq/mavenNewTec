@@ -6,7 +6,6 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-import com.sun.org.apache.regexp.internal.recompile;
 
 import edu.gqq.common.G;
 
