@@ -10,9 +10,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.sun.crypto.provider.ARCFOURCipher;
-import com.sun.org.apache.regexp.internal.recompile;
-
 public class CombinationSum3 {
 	@Test
 	public void testHashSet() {

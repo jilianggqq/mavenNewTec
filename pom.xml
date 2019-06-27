@@ -3,8 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>edu.gqq</groupId>
-	<artifactId>NewTec</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<artifactId>JavaTec</artifactId>
+	<version>1.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>NewTec</name>
@@ -12,7 +12,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jettyVersion>9.4.6.v20170531</jettyVersion>
+		<jettyVersion>9.4.19.v20190610</jettyVersion>
 	</properties>
 
 	<dependencies>
@@ -102,7 +102,7 @@
 			</plugin>
 			<plugin>
 				<!-- This plugin is needed for the servlet example -->
-				<groupId>org.mortbay.jetty</groupId>
+				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>${jettyVersion}</version>
 			</plugin>

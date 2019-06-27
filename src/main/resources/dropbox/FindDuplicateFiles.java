@@ -14,6 +14,11 @@
 //		1) hashing: MD5, SHA1, SHA256
 //		2) metadata: file size; the first 1kb of data, the second 1kb of data....
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.List;
+
 //<----------------------------------------------------------------------------------------------------------------------------------->
 // Easy version: obtain the list of all files in the file system and hash them into different groups
 public class Solution{
@@ -80,6 +85,9 @@ public class Solution{
 // MD5 is slow if each file is very large. How can we optimize the above solution?
 // Optimize: use the metadata of the file to first hashing the files and then use MD5 to hash the files.
 public class Solution{
+	public Solution() throws IOException {
+	}
+
 	public List<List<String>> findDuplicates(String path){
 		List<List<String>> res = new ArrayList<>();
 		if(path == null || path.length == 0) return res;

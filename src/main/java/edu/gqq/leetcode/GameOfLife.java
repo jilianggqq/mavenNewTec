@@ -2,10 +2,6 @@ package edu.gqq.leetcode;
 
 import static java.lang.System.out;
 
-import java.util.HashMap;
-
-import com.sun.javafx.collections.MappingChange.Map;
-
 public class GameOfLife {
 	public static void gameOfLife(int[][] board) {
 		if (board.length == 0) {
