@@ -1,0 +1,121 @@
+apply plugin: 'application'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+version = '3.0'
+//jar {
+//	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+//    manifest {
+//        attributes 'Implementation-Title': 'Gradle Quickstart',
+//                   'Implementation-Version': version,
+//                   'Main-Class': 'edu.gqq.App'
+//    }
+//}
+mainClassName = 'edu.gqq.App'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'junit:junit:4.12'
+    compile 'org.apache.commons:commons-lang3:3.3.2'
+    compile 'log4j:log4j:1.2.17'
+    compile 'com.google.guava:guava:18.0'
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'commons-beanutils:commons-beanutils:1.9.2'
+    compile 'org.eclipse.jetty:jetty-server:9.3.0.v20150612'
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
+
+task hello {
+    doLast {
+        println 'Hello world!'
+    }
+}
+
+task hello2 << {
+    println 'this is really hello2'
+}
+
+hello2.doFirst {
+    println 'this is hello2 do first'
+}
+
+hello2.doLast {
+    println 'this is hello2 do last'
+}
+
+hello2 << {
+    println 'this is hello without task keyword'
+}
+
+task upper << {
+    String someString = 'mY_nAmE'
+    println "Original: " + someString 
+    println "Upper case: " + someString.toUpperCase()
+}
+
+task count << {
+    4.times { print "$it " }
+}
+
+task intro(dependsOn: hello) << {
+    println "I'm Gradle"
+}
+
+4.times { counter ->
+    task "task$counter" << {
+        println "I'm task number $counter"
+    }
+}
+
+task loadfile << {
+    def files = file('src/main/resources').listFiles().sort()
+    files.each { File file ->
+        if (file.isFile()) {
+            ant.loadfile(srcFile: file, property: file.name)
+            println " *** $file.name ***"
+//            println "${ant.properties[file.name]}"
+        }
+    }
+}
+
+task copyLicense {
+    println "*** buildDir is $buildDir ***"
+    outputs.file new File("$buildDir/LICENSE")
+    doLast {
+        println "do copy is start"
+        copy {
+            from "LICENSE"
+            into "$buildDir"
+        }
+    }
+}
+
+applicationDistribution.from(loadfile) {
+    into ""
+}
+// applicationDistribution.from(upper) {
+//     into ""
+// }
+
+// applicationDistribution.from(copyLicense) {
+//     into ""
+// }
+
+// applicationDistribution.from(hello2) {
+//     into ""
+// }
