@@ -1,0 +1,25 @@
+# Eclipse
+.classpath
+bin/
+bin
+# .project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+# Tomcat
+.tomcatplugin
+
+# Gradle
+.gradle
+build/
