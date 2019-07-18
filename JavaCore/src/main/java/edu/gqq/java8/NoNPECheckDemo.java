@@ -59,7 +59,7 @@ public class NoNPECheckDemo {
 
 
         Optional<String> foo = Optional.of(outer)
-                .map(Outer::getNested)
+                .map((Outer::getNested))
                 .map(Nested::getInner)
                 .map(Inner::getFoo);
 

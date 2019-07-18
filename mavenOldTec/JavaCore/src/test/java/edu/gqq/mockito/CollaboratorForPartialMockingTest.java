@@ -9,10 +9,9 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 import static org.powermock.api.mockito.PowerMockito.spy;
-import static org.powermock.api.mockito.PowerMockito.verifyPrivate;
 import static org.powermock.api.mockito.PowerMockito.verifyStatic;
 
 @RunWith(PowerMockRunner.class)
@@ -75,5 +74,13 @@ public class CollaboratorForPartialMockingTest {
         PowerMockito.doReturn("mock value").when(mock, "privateTestMethod");
         String val = mock.privateMethodCaller();
         Assert.assertEquals("mock value Welcome to the Java world.", val);
+    }
+
+    @Test
+    public void testPrivateField() {
+        CollaboratorForPartialMocking collaborator = spy(new CollaboratorForPartialMocking());
+        Whitebox.setInternalState(collaborator, "_value", "gqq_testvalue");
+        String pStr = collaborator.privateFieldCaller();
+        Assert.assertEquals(pStr, "gqq_testvalue");
     }
 }

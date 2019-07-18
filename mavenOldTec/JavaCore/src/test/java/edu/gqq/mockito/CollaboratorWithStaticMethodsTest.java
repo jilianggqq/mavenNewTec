@@ -21,7 +21,6 @@ public class CollaboratorWithStaticMethodsTest {
 
     @Before
     public void setUp() {
-
     }
 
     @Test

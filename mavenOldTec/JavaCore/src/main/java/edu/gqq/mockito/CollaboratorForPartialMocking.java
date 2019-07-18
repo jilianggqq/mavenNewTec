@@ -1,6 +1,8 @@
 package edu.gqq.mockito;
 
 public class CollaboratorForPartialMocking {
+    private String _value;
+
     public static String staticMethod() {
         return "Hello Baeldung!";
     }
@@ -15,5 +17,9 @@ public class CollaboratorForPartialMocking {
 
     public String privateMethodCaller() {
         return privateTestMethod() + " Welcome to the Java world.";
+    }
+
+    public String privateFieldCaller() {
+        return this._value;
     }
 }
